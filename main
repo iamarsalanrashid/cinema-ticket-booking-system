@@ -1,0 +1,183 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main () {
+int i,j,x,y,n;
+int cinemaNo,timing,date,movieNo,seats,tickets,charges;
+cout<<"\n*****<<<WELCOME TO CINEMA TICKET BOOKING SYSTEM>>>*****\n\n";
+
+//Cinema Selection//
+cout<<"Select cinema/city: \n";
+cout<<"1. Cinepax Cinema, Lake City Lahore \n2. Cinestar in DHA Phase 6, Lahore \n3. Universal Cinemas Emporium Mall, Lahore\nEnter Your choice: ";
+string cinema;
+cin>>cinemaNo;
+while (cinemaNo!=1&&cinemaNo!=3&&cinemaNo!=2) {
+	cout<<"Invalid choice! Select choice from 1 to 3.\nEnter Your choice: ";
+	cin>>cinemaNo;
+}
+if (cinemaNo==1) {
+cinema="Cinepax Cinema in Lake City, Lahore";
+cout<<"\nWelcome to Cinepax Cinema Lake City, Lahore \n";
+	cout<<"Trending movie:\n"<<"1.Spiderman (IMDb: 7.4)\n2.Avengers:infinity wars (IMDb: 7.8) \n3. Harry Potter (IMDb: 7.0)\n";
+}
+else if (cinemaNo==2) {
+		cout<<"No movie right now! Select another cinema.\nEnter Your choice: ";
+		cin>>cinemaNo;
+	}
+else if (cinemaNo==3) {
+cinema="Universal Cinemas Emporium Mall, Lahore";
+	cout<<"\nWelcome to Universal Cinemas Emporium Mall, Lahore";
+	cout<<"\nTrending movie: \n "<<"1. Spiderman (IMDb: 7.4) \n2. Avengers:infinity wars (IMDb: 7.8) \n3. Harry Potter (IMDb: 7.0)\n";		
+}	
+
+// Date selection //	
+cout<<"\nSelect date on which you want to book movie: \n";
+		cout<<"              March,2022\n";
+	for (i=1;i<32;i++) {
+		if (i==8||i==15||i==22||i==29) {
+		cout<<endl;}
+	cout<<i<<"\t";
+}
+cout<<"\nEnter your choice: ";
+cin>>date;
+while (date>=32) {
+	cout<<"\nInvalid choice! Select appropriate date\nEnter your choice:  ";
+	cin>>date;
+}
+
+//Movie Selection//
+string movie;
+if (date>=1&&date<=15) {
+	cout<<"\nSelect movie\n 1.Spiderman (IMDb: 7.4) \n 2.Avengers:infinity wars (IMDb: 7.8) \n 3.Harry Potter (IMDb: 7.0)\n";
+cout<<"\nEnter your choice: ";
+
+cin>>movieNo;
+while (movieNo>=4||movieNo<=0) {
+	cout<<"Invalid choice! Choose Movie from 1 to 3: \nEnter Your choice:  ";
+	cin>>movieNo;
+}
+switch (movieNo) {
+	case 1:
+		movie="Spiderman (IMDb: 7.4)";
+		cout<<"\nYour selected movie is Spiderman (IMDb: 7.4)";
+		break;
+	case 2:
+		movie="Avengers:infinity wars (IMDb: 7.8";
+		cout<<"\nYour selected movie is Avengers:infinity wars (IMDb: 7.8";
+		break;
+	case 3:	
+	movie="Harry Potter (IMDb: 7.0)";
+	cout<<"\nYour selected movie is Harry Potter (IMDb: 7.0)";
+		break;
+}
+}
+else if (date>=16&&date<=31) {
+		cout<<"\nSelect movie\n 1.Waar (IMDb: 7.4) \n 2.3 idiots (IMDb: 7.8) \n 3.PK (IMDb: 9.0)";
+		cout<<"\nEnter your choice: ";
+cin>>movieNo;
+while (movieNo<=0||movieNo>=4) {
+	cout<<"\nInvalid choice! Choose Movie from 1 to 3: \nEnter Your choice: ";
+	cin>>movieNo;
+}
+switch (movieNo) {
+	case 1:
+		movie="Waar (IMDb: 7.4)";
+		cout<<"\nYour selected movie is Waar (IMDb: 7.4)";
+		break;
+	case 2:
+		movie="3 idiots (IMDb: 7.8)";
+		cout<<"\nYour selected movie is 3 idiots (IMDb: 7.8)";
+		break;
+	case 3:	
+	movie="PK (IMDb: 9.0)";
+	cout<<"\nYour selected movie is PK (IMDb: 9.0)";
+		break;
+}
+}
+else {
+	cout<<"No movie yet";
+}	
+
+//Timing Selection//
+cout<<"\n\nSelect timing\n";
+cout<<"1. 12 pm(screen:1)  2. 1 pm(screen2)  3. 3 pm(screen:1)  4. 4pm(screen:2) \n5. 6 pm(screen:1)  6. 7 pm(screen:2)  7. 9 pm(screen:1)  8. 10pm(screen:2) \n";
+
+string time[9]={"0","12 pm(screen:1)","1 pm(screen2)","3 pm(screen:1)","4pm(screen:2)","6 pm(screen:1)","7 pm(screen:2)","9 pm(screen:1)","10pm(screen:2)"};
+cout<<"Enter your choice: ";
+cin>>timing;
+while (timing<=0||timing>=9) {
+	cout<<"Invalid choice! Choose timing from 1 to 8 \nEnter Your choice: ";
+	cin>>timing;
+}
+cout<<"\nYour date and time of booking is "<<date<<" March,2022 at "<<time[timing];
+
+//Category Selection//
+cout<<"\n\nSelect category: \n 1. Adult \t    Rs. 1500 \n 2. Child \t    Rs. 1000 \n 3. Senior Citizen  Rs. 1000\nEnter your choice: ";
+cin>>n;
+string category;
+while (n<=0||n>=4) {
+	cout<<"Invalid choice! Choose category from 1 to 3\nEnter Your choice: ";
+	cin>>n;
+}
+if (n==1) {
+	category="Adult";
+cout<<"\nEnter no. of tickets you want to buy: \nEnter Your choice: ";
+cin>>tickets;
+charges=tickets*1500;
+}
+else if (n==2) {
+	category="Child";
+cout<<"\nEnter no. of tickets you want to buy: \nEnter Your choice: ";
+cin>>tickets;
+charges=tickets*1000;
+}
+else if (n==3) {
+	category="Senior citizen";
+cout<<"\nEnter no. of tickets you want to buy: \nEnter Your choice: ";
+cin>>tickets;
+charges=tickets*1000;
+}	
+
+//Seats selection//
+cout<<"\nSelect "<<tickets<<" Seats from following\n";
+char ch;
+for (char ch='A';ch<='L';ch++) {
+		for (j=14;j>0;j--) {
+			cout<<ch<<j<<"  ";
+		}cout<<endl;
+	}
+cout<<"\n";
+n=tickets;
+string seat[n+2];
+for (int i=1;i<=n;i++) {
+cout<<"Choose the seat "<<i<<": ";
+	cin>>seat[i];
+	cout<<endl;
+}
+if (tickets==1) {
+cout<<"\nYour choosen seat is: \n";
+for (int i=1;i<=n;i++) {
+	cout<<seat[i];
+}
+}
+else {
+	cout<<"\nYour choosen seats are: \n";
+for (int i=1;i<=n;i++) {
+	cout<<seat[i]<<", ";
+}	
+}
+	cout<<"\n\nThanks for booking!!\n\n";
+	 
+//Review//
+cout<<"\nTicket Review:\n\nYour cinema: "<<cinema<<"\nDate: "<<date<<" March,2022";
+cout<<"\nTime: "<<time[timing];
+cout<<"\nMovie: "<<movie;
+cout<<"\nCategory:"<<category;
+cout<<"\nTicket: "<<tickets<<"\nSeat/s: ";
+for (int i=1;i<=n;i++) {
+	cout<<seat[i]<<", ";
+}
+cout<<"\nTotal Charges: "<<charges<<endl;
+	
+return 0;
+}
